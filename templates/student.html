@@ -1,40 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container-lg d-flex flex-column justify-content-center my-5">
-        <h1 class="text-lg-center">Student Page</h1>
-        <!--<p>{{ item_name }}</p> -->
-        <table class="table table-hover table-dark">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Education</th>
-                    <th>Age</th>
-                    <th>Address</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- This is jinja2 syntax for a for-loop. The items are from the list of dictionaries in the main.py file. While rendering the template, it sending the details along with it -->
-                {%for item in items%} 
-                    <tr>
-                        <td>{{item.name}}</td>
-                        <td>{{item.educ}}</td>
-                        <td>{{item.age}}</td>
-                        <td>{{item.address}}</td>
-                        <td><button class="btn btn-info">details</button></td>
-                    </tr>
-                {%endfor%} 
-                <!-- To end the for loop, this is the much needed syntax -->
-            </tbody>
-        </table>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title%}
+    Student Page
+{% endblock %}
+{% block content %}
+<div class="container-fluid d-flex flex-column justify-content-center my-5">
+    <h1 class="text-center">Student Page</h1>
+    <!--<p>{{ item_name }}</p> -->
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>10th score(in %)</th>
+          <th>12th score(in %)</th>
+          <th>CGPA</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- This is jinja2 syntax for a for-loop. The items are from the list of dictionaries in the main.py file. While rendering the template, it sending the details along with it -->
+        {%for item in items%}
+        <tr>
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.mark1}}%</td>
+          <td>{{item.mark2}}%</td>
+          <td>{{item.cgpa}}</td>
+          <td>
+            <button class="btn btn-info">details</button>
+            <button class="btn btn-success">edit</button>
+          </td>
+        </tr>
+        {%endfor%}
+        <!-- To end the for loop, this is the much needed syntax -->
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
