@@ -14,7 +14,13 @@ def hello():
     """define the view using a function, which returns a string"""
     return render_template('index.html') # return a string
 
-@app.route("/products")
-def product():
+@app.route("/students")
+def student():
     # return render_template('products.html',item_name='Try our new product')
-    return render_template('products.html',items=['ajay','praveen','krishna','suraj'])
+    itemvalues=[
+        {'name':'Siva','educ':'10th std','age':'15','address':'chathrapatti'},
+        {'name':'Ram','educ':'1st yr college','age':'18','address':'Kovilpatti'},
+        {'name':'Sakthi','educ':'12th std','age':'17','address':'vadugapatti'},
+        {'name':'Saravanan','educ':'8th grade','age':'13','address':'New York'}
+    ]
+    return render_template('student.html',items=itemvalues)
