@@ -8,7 +8,10 @@
 <body>
     <div>
         <h1>Product Page</h1>
-        <p>{{ item_name }}</p>
+        <!--<p>{{ item_name }}</p> -->
+        {%for item in items%}
+            <p>item</p>
+        {%endfor%}
     </div>
 </body>
 </html>
