@@ -16,5 +16,4 @@ def hello():
 
 @app.route("/products")
 def product():
-    """products page"""
     return render_template('products.html',item_name='Try our new product')
